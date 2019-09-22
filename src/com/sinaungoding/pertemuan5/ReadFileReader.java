@@ -3,7 +3,7 @@
 
  * Copyright (c) 2019
  * All rights reserved.
- * Written by od3ng created on Sep 22, 2019 7:35:36 PM
+ * Written by od3ng created on Sep 22, 2019 8:07:26 PM
  * Blog    : sinaungoding.com
  * Email   : lepengdados@gmail.com
  * Github  : 0d3ng
@@ -11,10 +11,10 @@
  */
 package com.sinaungoding.pertemuan5;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.LineNumberInputStream;
+import java.io.LineNumberReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,21 +22,21 @@ import java.util.logging.Logger;
  *
  * @author od3ng
  */
-public class ReadFile {
+public class ReadFileReader {
 
     public static void main(String[] args) {
         try {
             int desimal;
             char ascii;
-            LineNumberInputStream inputStream = new LineNumberInputStream(new FileInputStream("coba.txt"));
-            while ((desimal = inputStream.read()) != -1) {
+            LineNumberReader lineNumberReader = new LineNumberReader(new FileReader("coba.txt"));
+            while ((desimal = lineNumberReader.read()) != -1) {
                 ascii = (char) desimal;
-                System.out.println("" + ascii + " at line " + inputStream.getLineNumber());
+                System.out.println("" + ascii + " at line " + lineNumberReader.getLineNumber());
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ReadFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReadFileReader.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ReadFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReadFileReader.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
